@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $UID != 0 ];
+	then
+		echo "You need to be a superuser!"
+		exit 1
+fi
+
+while [ $UID = 0 ];
+	do
+		apt update
+		break
+done
+
+read -p "You are about to upgrade, would you like to proceed? " ans
+
+if [$ans = "yes" ];
+	then
+		apt upgrade
+		exit 0
+	else
+		exit 0
+fi
