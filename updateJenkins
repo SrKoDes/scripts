@@ -1,0 +1,6 @@
+wget https://updates.jenkins.io/download/war/2.289.3/jenkins.war
+cd /usr/lib/jenkins
+sudo mv /usr/lib/jenkins/jenkins.war ~/jenkins.war.old
+sudo cp jenkins.war /usr/lib/jenkins
+sudo systemctl stop jenkins
+sudo systemctl start jenkins
