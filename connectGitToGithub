@@ -13,6 +13,7 @@ git config --global user.email " "
 git remote add origin git@github.com:user-name/repo-name
 
 #ensure the branch is correct, use git switch if needed
+git switch -C "new branch name" #if you need to create the branch
 
 git add .
 git commit -m "message here"
