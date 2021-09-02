@@ -5,8 +5,8 @@ ssh-keygen -t rsa -b 4096 -C "e-mail"
 # enter file location, "Enter" for default
 
 cat id_rsa.pub             # copy this and paste it on your github profile/ the repo itself
-exec ssh-agent bash       # or zsh depending on shell
-ssh-add id_rsa
+exec ssh-agent bash        # or zsh depending on shell
+ssh-add id_rsa             # done in the ~/.ssh folder
 git init
 git config --global user.name " "
 git config --global user.email " "
