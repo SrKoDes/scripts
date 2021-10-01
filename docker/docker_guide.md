@@ -21,13 +21,13 @@ apt update
 apt install -y ncat iputils-ping net-tools
 ```
 We now have an Ubuntu container with three additional networking packages installed. You can see through the terminal that you are now in the container! It should now say `root@{container_id}`.
-Let's save this version of the container as an image so that in the future we can easily replicate this current state of our container. Let's name this container ncat:v1.0, after the first networking package we installed. The next commands will be:
+Let's save this version of the container as an image so that in the future we can easily replicate this current state of our container. Let's name this image ncat (first networking package installed), combined with the tag v1.0 (first version). The next commands will be:
 ```
 exit
 docker ps -a
 docker commit {container_id} ncat:v1.0
 ```
-Let's break this down. In order to run docker commands, we must first leave the container: `exit`. Next, we run `docker ps -a` in order to view all our containers. We can see our container's id as well as name, which are necessary for the next command. `docker commit...` is the command to make an image of the container's current state. 
+Let's break this down. In order to run docker commands, we must first leave the container: `exit`. Next, we run `docker ps -a` in order to view all our containers. We can see our container's id as well as name, which are necessary for the next command. `docker commit...` is the command to make an image of the container's current state.
 
 *It is important to note three things:
     Firstly, that you can also pass in the **full container's name**. 
@@ -38,7 +38,7 @@ Next let's check our images to see if it worked:
 ```
 docker images
 ```
-We should see not only our previously pulled images, `Ubuntu` and `Alpine`, but also our newly created `ncat:v.10`. 
+We should see not only our previously pulled images, `Ubuntu` and `Alpine`, but also our newly created `ncat:v1.0`. 
 
 Next, let's play with different ways to start, connect to, and exit a container. First let's start our container up, and then connect to it using:
 ```
@@ -49,14 +49,13 @@ There is an alternative to `attach` that will also allow you to connect to a run
 ```
 docker exec -ti {container_id} bash
 ```
-Docker restarting and reentering a container (if you exit, container will still run)
+Now let's see about cleanup.
 ```
-docker exec -ti {container_name} bash -attaches to container + specifies shell
+Ctrl + P `then` CTRL + Q
 ```
 
 
 ## Finding Container Info
-`docker ps` or `docker ps -a` for not running container
 
 `docker container rm {container id}` first couple of letters
 
@@ -72,7 +71,7 @@ docker exec -ti {container_name} bash -attaches to container + specifies shell
 
 
 
-`ctrl + q` will exit container without closing it
+
 
 `docker run -ti -v /Users/hev/test:/shared ncat:v1.0 bash` supposed to create a container with an image and a directory /shared using the directory specified by the path. this folder will mirror local files both ways.
 
