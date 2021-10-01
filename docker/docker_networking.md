@@ -1,3 +1,6 @@
+# Coming Soon! (Only Notes Below)
+
+
 `docker run -ti ncat:v1.0 bash` - start up and enter container with ncat:v1.0 image (name is nifty_villani
 `docker run -ti --name server01 --net net01 ncat:v1.0 bash` - start up and enter container named server01 in net01 with same image
 `docker run -ti --name server02 --net net01 ncat:v1.0 bash`- start up and enter container named server02 in net01 with same image
@@ -31,3 +34,5 @@ docker hub
 
 `docker tag ncat:v2.0 srkodes/ncat:v3.0` - create new image
 `
+
+`docker inspect {container ID}` to view Network info
