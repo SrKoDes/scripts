@@ -3,6 +3,7 @@
 ### A *container* is a standard unit of software that packages up code for whatever application you want to run/test. Now you could run the an application directly on your computer, or remotely on a server, but using a container takes a sleeker, more flexible approach, requiring less system resources while also being able to operate on a breadth of operating systems.
 ### An *image* can be thought of as a sort of blueprint. A container is just a unit of software that is able to host code, but if you want to save what a container full of code looks like, you take an image of that container. From that image, you can build duplicate containers with ease.
 ### Now let's get right into it. Download docker, and follow the steps below!
+![docker](https://user-images.githubusercontent.com/84875113/135682938-67313527-093b-4efb-a046-0cb49c641929.png)
 
 Let's get some docker images. In the terminal run:
 ```
