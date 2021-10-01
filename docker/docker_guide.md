@@ -49,53 +49,29 @@ There is an alternative to `attach` that will also allow you to connect to a run
 ```
 docker exec -ti {container_id} bash
 ```
-Now let's see about cleanup.
+Now let's see about cleanup. We want to disconnect from the container, stop it from running, and ultimately delete it. (If `Ctrl + P then Ctrl + Q` doesn't work, you can use `exit`.)
 ```
-Ctrl + P `then` CTRL + Q
+Ctrl + P then Ctrl + Q
+docker kill {container_id}
+docker rm {container_id}
+```
+*Note: If you used `exit` to disconnect from the container, you might find that the container is no longer running! This is likely due to the fact that you used `attach` to connect to the container. In this case, skip the `docker kill` step. If you had used `exec`, and then `exit`, you'd find the container still running.
+
+We've lost our first container! No worries, we still have an image of it, let's use that image to recreate it. It will look very similar to our first command we used to create the container, with one exception; the image name will be our new image, instead of `ubuntu`:
+```
+docker run -ti ncat:v1.0
+```
+Now lets run a command to check if one of our previously installed packages (that differentiates this image from the `ubuntu` image is) is still there:
+```
+ncat --version
+```
+Et Voila! It should return the version of ncat, indicating your progress in building a custom image. Let's disconnect from this container and remove the ubuntu image, since we don't need it anymore.
+```
+exit
+docker rmi ubuntu
 ```
 
-
-## Finding Container Info
-
-`docker container rm {container id}` first couple of letters
-
-`docker kill container id` stops a running container
-
-`docker container kill $(docker ps -q)`-kill all containers
-
-`docker run --rm -ti ncat:v1.0 bash` rm will remove the container after we start a container from this image
-
-`docker rmi alpine` - remove images?
-
-`docker run -ti -d imagename:imagetag bash` -d is to run it in the background
-
-
-
-
-
-`docker run -ti -v /Users/hev/test:/shared ncat:v1.0 bash` supposed to create a container with an image and a directory /shared using the directory specified by the path. this folder will mirror local files both ways.
-
-`docker container prune` - delete all containers (must all be stopped)
-
-`docker network ls` - view network
-
-`docker network create {name}` - create network
-
-`docker run -ti --net {containername} --name {servername} ncat:v1.0 bash` - 
-
-ifconfig
-
-`docker run --rm -ti ncat:v1.0 bash`
-
-ifconfig
-
-
-
-two containers cant communicate with each other, because first is on default and the second is on private
-
-`docker run --rm --name {containername} --net {networkname} -ti ncat:v1.0 bash`
-
-`check /etc/resolv.conf` has teh local dns ---- maybe
+Congratulations! You've finished this guide on how to create and remove containers and images. If you'd like to learn more, feel free to check the [`Networking`](url) guide which teaches how to get containers to speak to each other, as well as the list of [`Commands`](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md).
 
 
 
