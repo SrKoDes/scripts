@@ -4,15 +4,18 @@
 `docker container ls` - " " " "
 `docker ps -a` - lists all containers
 
+
 ### Building Commands
 `docker commit {container_id} {image_name}:{image_tag}` - creates an image
 `docker run -ti {image_name}:{image_tag}` - creates a container. if there is no image tag, the default, `latest`, will be used
 *Options*
-`-i` - when used with `run`, allows for standard input
-`-t` - when used with `run`, allows for terminal access
-`--rm` - when used with `run`, will clean up container and remove file systems
 `-d` - when used with `run`, will start container in the background, preventing you from automatically connecting to container
-`-v` - when used with `run`, will bind mount a directory from the local host. Should be the last option and is followed by the absolute path to the directory. Example: `docker run -ti -v {absolute_path}:{designated_name_of_directory_for_container} {image_name:image_tag}`
+`-i` - when used with `run`, allows for standard input
+`--name` when used with `run`, you can name your container. It is followed by a `{container_name}` of your choosing
+`--net`when used with `run`, you can associate your container with a network. This network must exist
+`--rm` - when used with `run`, will clean up container and remove file systems
+`-t` - when used with `run`, allows for terminal access
+`-v` - when used with `run`, will bind mount a directory from the local host. It is followed by the absolute path to the directory. Example: `docker run -ti -v {absolute_path}:{designated_name_of_directory_for_container} {image_name:image_tag}`
 
 ### Connecting to Container Commands
 `docker attach {container_id}` - connects to container. if using exit to disconnect from container, **will** power off container
@@ -29,6 +32,9 @@
 `docker container prune` - delete all containers (must be turned off)
 `docker rmi {image_name}` - remove image
 
-
 ### Docker Hub Commands
 `docker pull {image_name}` - pulls an image from Docker Hub
+
+### Network Commands
+`docker network ls` - lists all networks
+`docker network create {network_name}` - create network
