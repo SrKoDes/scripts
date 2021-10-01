@@ -30,6 +30,8 @@ docker start -ti {container_name}
 
 `docker kill container id` stops a running container
 
+`docker container kill $(docker ps -q)`-kill all containers
+
 `docker commit 7fef ncat:v1.0` create an image name:tag
 
 `docker run --rm -ti ncat:v1.0 bash` rm will remove the container after we start a container from this image
