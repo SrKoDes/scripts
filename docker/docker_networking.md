@@ -33,6 +33,8 @@ inside newest container
 docker hub
 
 `docker tag ncat:v2.0 srkodes/ncat:v3.0` - create new image
-`
+
 
 `docker inspect {container ID}` to view Network info
+
+`check /etc/resolv.conf` has teh local dns ---- maybe
