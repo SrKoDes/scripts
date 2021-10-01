@@ -29,18 +29,31 @@ docker commit {container_id} ncat:v1.0
 ```
 Let's break this down. In order to run docker commands, we must first leave the container: `exit`. Next, we run `docker ps -a` in order to view all our containers. We can see our container's id as well as name, which are necessary for the next command. `docker commit...` is the command to make an image of the container's current state. 
 
-*It is important to note two things. Firstly, that you can also pass in the **full container's name**. Secondly, that it's not required to pass in the full **container's id**. You can pass in the first character of the id, so long as it is unique to that one container. For example, I have two containers `a2853e1d3236` and `a2567f1g3248`. I couldn't use `a2` as a shortened **container id** for either, but I could use `a28` or `a25` for the respective containers.
+*It is important to note three things:
+    Firstly, that you can also pass in the **full container's name**. 
+    Secondly, that it's not required to pass in the full **container's id**. You can pass in the first character of the id, so long as it is unique to that one container. For example, I have two containers `a2853e1d3236` and `a2567f1g3248`. I couldn't use `a2` as a shortened **container id** for either, but I could use `a28` or `a25` for the respective containers.
+    Thirdly, whenever you see **{container_id}**, you may alternatively enter the **containers name**.
 
+Next let's check our images to see if it worked:
+```
+docker images
+```
+We should see not only our previously pulled images, `Ubuntu` and `Alpine`, but also our newly created `ncat:v.10`. 
 
+Next, let's play with different ways to start, connect to, and exit a container. First let's start our container up, and then connect to it using:
+```
+docker start -ti {container_id}
+docker attach {container_id}
+```
+There is an alternative to `attach` that will also allow you to connect to a running container, while also enabling you to specify the shell you want:
+```
+docker exec -ti {container_id} bash
+```
 Docker restarting and reentering a container (if you exit, container will still run)
 ```
-docker start -ti {container_name}
 docker exec -ti {container_name} bash -attaches to container + specifies shell
 ```
 
-# Finding Newtork Data
-`docker ps` to find container ID
-`docker inspect {container ID}` to view Network info
 
 ## Finding Container Info
 `docker ps` or `docker ps -a` for not running container
@@ -51,15 +64,13 @@ docker exec -ti {container_name} bash -attaches to container + specifies shell
 
 `docker container kill $(docker ps -q)`-kill all containers
 
-`docker commit 7fef ncat:v1.0` create an image name:tag -done
-
 `docker run --rm -ti ncat:v1.0 bash` rm will remove the container after we start a container from this image
 
 `docker rmi alpine` - remove images?
 
 `docker run -ti -d imagename:imagetag bash` -d is to run it in the background
 
-`docker attach containerid` - logs in to the container
+
 
 `ctrl + q` will exit container without closing it
 
