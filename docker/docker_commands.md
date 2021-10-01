@@ -1,15 +1,22 @@
-# Bootstrap
-In root account (windows)
+## Docker Guide
+
+
+After installing Docker, let's get some docker images. In the terminal run:
 ```
 docker pull ubuntu
-docker run -ti ubuntu bash
 docker pull alpine:latest
 ```
-Then in the container->
+Now we want to create a container using one of our images. Let's use our Ubuntu image, which will create a container with Ubuntu installed:
+```
+docker run -ti ubuntu bash
+```
+
+This Ubuntu is bare bones at the moment. Let's fix that and install some packages:
 ```
 apt update
 apt install -y ncat iputils-ping net-tools
 ```
+We now have an Ubuntu container with three additional networking packages installed. Let's save this version of the container as an image so that in the future we can easily replicate this current state of our container. Let's name this container ubuntu-networking
 
 Docker restarting and reentering a container (if you exit, container will still run)
 ```
@@ -18,15 +25,13 @@ docker start -ti {container_name}
 ```
 
 # Finding Newtork Data
-*
-
 `docker ps` to find container ID
 `docker inspect {container ID}` to view Network info
 
 ## Finding Container Info
 `docker ps` or `docker ps -a` for not running container
 
-`docker container rm container id` first couple of letters
+`docker container rm {container id}` first couple of letters
 
 `docker kill container id` stops a running container
 
@@ -66,7 +71,7 @@ two containers cant communicate with each other, because first is on default and
 
 `docker run --rm --name {containername} --net {networkname} -ti ncat:v1.0 bash`
 
-check /etc/resolv.conf has teh local dns ---- maybe
+`check /etc/resolv.conf` has teh local dns ---- maybe
 
 
 
