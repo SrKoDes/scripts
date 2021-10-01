@@ -71,7 +71,7 @@ exit
 docker rmi ubuntu
 ```
 
-Congratulations! You've finished this guide on how to create and remove containers and images. If you'd like to learn more, feel free to check the `[Networking](https://github.com/SrKoDes/scripts/blob/main/docker/docker_networking.md)` guide which teaches how to get containers to speak to each other, as well as the list of [`Commands`](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md).
+Congratulations! You've finished this guide on how to create and remove containers and images. If you'd like to learn more, feel free to check the [`Networking`](https://github.com/SrKoDes/scripts/blob/main/docker/docker_networking.md) guide which teaches how to get containers to speak to each other, as well as the list of [`Commands`](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md).
 
 
 
