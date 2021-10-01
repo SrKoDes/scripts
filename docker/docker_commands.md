@@ -1,5 +1,5 @@
 # Docker Guide
-### So, you want to learn about containers and images? Let's first talk a little bit about what they are.
+### So, you want to learn about containers and images? This guide will give you hands on experience and explain concepts along the way. Let's first talk a little bit about what they are.
 ### A *container* is a standard unit of software that packages up code for whatever application you want to run/test. Now you could run the an application directly on your computer, or remotely on a server, but using a container takes a sleeker, more flexible approach, requiring less system resources while also being able to operate on a breadth of operating systems.
 ### An *image* can be thought of as a sort of blueprint. A container is just a unit of software that is able to host code, but if you want to save what a container full of code looks like, you take an image of that container. From that image, you can build duplicate containers with ease.
 ### Now let's get right into it. Download docker, and follow the steps below!
@@ -20,12 +20,22 @@ This Ubuntu is bare bones at the moment. Let's fix that and install some package
 apt update
 apt install -y ncat iputils-ping net-tools
 ```
-We now have an Ubuntu container with three additional networking packages installed. Let's save this version of the container as an image so that in the future we can easily replicate this current state of our container. Let's name this container ubuntu-networking
+We now have an Ubuntu container with three additional networking packages installed. You can see through the terminal that you are now in the container! It should now say `root@{container_id}`.
+Let's save this version of the container as an image so that in the future we can easily replicate this current state of our container. Let's name this container ncat:v1.0, after the first networking package we installed. The next commands will be:
+```
+exit
+docker ps -a
+docker commit {container_id} ncat:v1.0
+```
+Let's break this down. In order to run docker commands, we must first leave the container: `exit`. Next, we run `docker ps -a` in order to view all our containers. We can see our container's id as well as name, which are necessary for the next command. `docker commit...` is the command to make an image of the container's current state. 
+
+*It is important to note two things. Firstly, that you can also pass in the **full container's name**. Secondly, that it's not required to pass in the full **container's id**. You can pass in the first character of the id, so long as it is unique to that one container. For example, I have two containers `a2853e1d3236` and `a2567f1g3248`. I couldn't use `a2` as a shortened **container id** for either, but I could use `a28` or `a25` for the respective containers.
+
 
 Docker restarting and reentering a container (if you exit, container will still run)
 ```
 docker start -ti {container_name}
-`docker exec -ti {container_name} bash` -attaches to container + specifies shell
+docker exec -ti {container_name} bash -attaches to container + specifies shell
 ```
 
 # Finding Newtork Data
@@ -41,7 +51,7 @@ docker start -ti {container_name}
 
 `docker container kill $(docker ps -q)`-kill all containers
 
-`docker commit 7fef ncat:v1.0` create an image name:tag
+`docker commit 7fef ncat:v1.0` create an image name:tag -done
 
 `docker run --rm -ti ncat:v1.0 bash` rm will remove the container after we start a container from this image
 
