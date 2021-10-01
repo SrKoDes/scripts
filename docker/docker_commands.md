@@ -26,7 +26,7 @@
 
 `-t` - when used with `run`, allows for terminal access
 
-`-v` - when used with `run`, will bind mount a directory from the local host. It is followed by the absolute path to the directory. Example: `docker run -ti -v {absolute_path}:{designated_name_of_directory_for_container} {image_name:image_tag}`
+`-v` - when used with `run`, will bind mount a directory from the local host. It is followed by the absolute path to the directory. Example: `docker run -ti -v {absolute_path}:{designated_name_of_directory_for_container}/ {image_name:image_tag}`
 
 ### Connecting to Container Commands
 `docker attach {container_id}` - connects to container. if using exit to disconnect from container, **will** power off container
