@@ -1,5 +1,6 @@
-## Docker Guide
-
+# Docker Guide
+### So, you want to learn about containers and images? Let's first talk a little bit about what they are.
+### A docker
 
 After installing Docker, let's get some docker images. In the terminal run:
 ```
