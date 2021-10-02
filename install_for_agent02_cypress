@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install default-jre -y git -y nodejs -y npm -y maven -y libgtk2.0-0 -y libgtk-3-0 -y libgbm-dev -y libnotify-dev -y libgconf-2-4 -y libnss3 -y libxss1 -y libasound2 -y libxtst6 -y xauth -y xvfb
