@@ -1,5 +1,1 @@
-sudo apt install john \
-htop \
-apache2
-y
-password
+sudo apt install 
