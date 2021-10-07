@@ -8,7 +8,9 @@
 `docker ps -a` - lists all containers
 
 ### Building Commands
-`docker commit {container_id} {image_name}:{image_tag}` - creates an image
+`docker build {image_name}:{image_tag} path/to/Dockerfile` - creates an image from a Dockerfile (easiest if done in the dir where it's located)
+
+`docker commit {container_id} {image_name}:{image_tag}` - creates an image from a container
 
 `docker run -ti {image_name}:{image_tag}` - creates a container. if there is no image tag, the default, `latest`, will be used
 
