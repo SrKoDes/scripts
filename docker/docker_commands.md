@@ -20,9 +20,11 @@
 
 `-i` - when used with `run`, allows for standard input
 
-`--name` when used with `run`, you can name your container. It is followed by a `{container_name}` of your choosing
+`--name` - when used with `run`, you can name your container. It is followed by a `{container_name}` of your choosing
 
-`--net`when used with `run`, you can associate your container with a network. This network must exist
+`--net` - when used with `run`, you can associate your container with a network. This network must exist
+
+`-p` - when used with `run`, you can expose ports on the container. It is followed by `(optional){host_port}/(necessary){container_port}.`
 
 `--rm` - when used with `run`, will clean up container and remove file systems
 
@@ -54,7 +56,9 @@
 ### Docker Hub Commands
 `docker pull {image_name}` - pulls an image from Docker Hub
 
-### Network Commands
+### Networking Commands
 `docker network ls` - lists all networks
 
 `docker network create {network_name}` - create network
+
+`--net` option - look under **Building Commands** above
