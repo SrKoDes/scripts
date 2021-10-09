@@ -42,7 +42,8 @@ exit
 docker commit {container_id} ncat:v1.0
 ```
 From here, let's proceed:
-```docker run -ti --name server01 --net net01 ncat:v1.0 bash
+```
+docker run -ti --name server01 --net net01 ncat:v1.0 bash
 
 >Inside the container
 ping
