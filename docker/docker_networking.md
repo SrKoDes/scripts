@@ -25,6 +25,7 @@ docker network create net01
 docker network ls
 ```
 Our output should look like the image below:
+
 <img width="449" alt="Screen Shot 2021-10-09 at 9 18 41 AM" src="https://user-images.githubusercontent.com/84875113/136659429-77f6fe43-5656-4b81-8327-5e7d7f0ecb22.png">
 
 
