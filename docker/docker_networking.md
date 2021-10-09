@@ -28,6 +28,25 @@ Our output should look like the image below:
 
 <img width="449" alt="Screen Shot 2021-10-09 at 9 18 41 AM" src="https://user-images.githubusercontent.com/84875113/136659429-77f6fe43-5656-4b81-8327-5e7d7f0ecb22.png">
 
+As you can see, our network `net01` has the `bridge` driver, meaning any container on this network should be able to connect to the internet. Let's test that out. For this, we'll need the `ncat:v1.0` image we created in the previous guide. If you don't have that image, here are steps to quickly create that image:
+```
+docker pull ubuntu
+docker run -ti ubuntu bash
+
+>Inside The Container
+apt update
+apt install -y ncat iputils-ping net-tools
+exit
+
+>Back in Host Shell
+docker commit {container_id} ncat:v1.0
+```
+From here, let's proceed:
+```docker run -ti --name server01 --net net01 ncat:v1.0 bash
+
+>Inside the container
+ping
+```
 
 `docker run -ti ncat:v1.0 bash` - start up and enter container with ncat:v1.0 image (name is nifty_villani
 `docker run -ti --name server01 --net net01 ncat:v1.0 bash` - start up and enter container named server01 in net01 with same image
