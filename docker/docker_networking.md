@@ -7,7 +7,7 @@ Welcome! This guide will briefly show you how to enable two docker containers to
 ### Intro
 
 Docker has at least three pre-installed networks: `Bridge`, `Host`, and `None`. Each has a different bridge that defines its network capabilities. In this case, their driver names are the same as their network names with the exception of `None`'s driver named `Null`. Below are descriptions of each driver.
-- **Bridge**: A network created by Docker to allow containers to talk to the internet as well as other containers on the same network.
+- **Bridge**: A network created by Docker to allow containers to talk to the internet as well as other containers on the same network. The default driver for any created network, if no driver is specified.
 - **Host**: The container is placed on the host computer's network, i.e. your home internet.
 - **Null**: The container has no networking capabilities.
 
@@ -19,11 +19,13 @@ Let's begin by turning on Docker if you haven't already. Let's take a look at ou
 ```
 docker network ls
 ```
-We should see the networks we just learned about. By default, any containers we create will be added to the `Bridge` network. Let's try creating a separate network called `net01`.
+We should see the networks we just learned about. By default, any networks we create will have the `Bridge` driver. Let's try creating a separate network called `net01`.
 ```
 docker network create net01
+docker network ls
 ```
-
+Our output should look like the image below:
+<img width="449" alt="Screen Shot 2021-10-09 at 9 18 41 AM" src="https://user-images.githubusercontent.com/84875113/136659429-77f6fe43-5656-4b81-8327-5e7d7f0ecb22.png">
 
 
 `docker run -ti ncat:v1.0 bash` - start up and enter container with ncat:v1.0 image (name is nifty_villani
@@ -35,7 +37,8 @@ outside of the docker
 `docker network connect bridge server02`- network bridge the server02 to bridge network, allowing it to ping 1st container created above
 `docker exec -ti server02 bash`- re enter server02 container (and ping containers to see youre connection)
 
-outside of the container
+outside of the container![Uploading Screen Shot 2021-10-09 at 9.18.41 AM.png…]()
+
 `docker run -ti -p 45678:8080 ncat:v1.0 bash`
 
 
