@@ -41,18 +41,23 @@ exit
 >Back in Host Shell
 docker commit {container_id} ncat:v1.0
 ```
-From here, let's proceed:
+From here, let's proceed. Let's create a container from the `ncat:v1.0` image, with the name `server01` on the network we just created `net01`. After we've created and connected to the container, let's ping Google's primary DNS server to check for internet access.
 ```
 docker run -ti --name server01 --net net01 ncat:v1.0 bash
 
 >Inside the container
-ping
+ping 8.8.8.8 (Ctrl + C to stop)
+exit
+```
+*Note: If you were unable to ping the IP address, repeat the previous step in which we install networking tools onto our container.*
+
+Let's create another container inside the same network `net01`.
+```
+docker run -ti --name server02 --net net01 ncat:v1.0
 ```
 
 `docker run -ti ncat:v1.0 bash` - start up and enter container with ncat:v1.0 image (name is nifty_villani
-`docker run -ti --name server01 --net net01 ncat:v1.0 bash` - start up and enter container named server01 in net01 with same image
-`docker run -ti --name server02 --net net01 ncat:v1.0 bash`- start up and enter container named server02 in net01 with same image
-`exit`- exit container
+
 
 outside of the docker
 `docker network connect bridge server02`- network bridge the server02 to bridge network, allowing it to ping 1st container created above
