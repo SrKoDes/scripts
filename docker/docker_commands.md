@@ -47,7 +47,7 @@
 
 `docker container kill $(docker ps -q)`- turn off all containers
 
-`docker container rm {container_id}` - delete a container (must be turned off)
+`docker container rm {container_id}` - delete a container (must be turned off). can enter multiple ID's separated by spaces
 
 `docker container prune` - delete all containers (must be turned off)
 
