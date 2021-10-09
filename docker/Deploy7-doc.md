@@ -2,4 +2,4 @@
 
 ### Create the ECS Cluster
 1) Create a Github repo with Dockerfile, .jar, and Jenkinsfile.
-  - ba
+2) - asiodfjaopsdf
