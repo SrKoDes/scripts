@@ -14,6 +14,8 @@
 
 `kubectl config use-context {cluster_name}` - allows you to switch to the designated cluster
 
+`kubectl get all` - shows information on the current cluster
+
 
 
 
