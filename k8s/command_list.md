@@ -20,6 +20,8 @@
 
 `k3d cluster create {cluster_name} -p "8081:8080@loadbalancer" ` - create a cluster with a port open on a loadbalancer
 
+`kubectl get node` - shows info on a node (maybe the master node)
+
 
 
 
