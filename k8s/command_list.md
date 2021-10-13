@@ -22,6 +22,10 @@
 
 `kubectl get node` - shows info on a node (maybe the master node)
 
+create a hello-world.yml file in a directory of your choosing.
+
+`nano hello-world.yml`
+
 
 
 
