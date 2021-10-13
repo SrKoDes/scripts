@@ -99,4 +99,4 @@ exit
 The first command is the most important. It connects a container, designated `server01`, to a network, designated `bridge`. All of our servers can now talk to each other!
 
 ### Conclusion
-This is just one way of conecting containers and allowing them to exchange information. To see my first guide, introducing Docker, click [here](https://github.com/SrKoDes/scripts/blob/main/docker/docker_guide.md). For a list of commonly used Docker commands, click [here](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md)
+This is just one way of conecting containers and allowing them to exchange information. To see my first guide, introducing Docker, click [here](https://github.com/SrKoDes/scripts/blob/main/docker/docker_guide.md). For a list of commonly used Docker commands, click [here](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md).
