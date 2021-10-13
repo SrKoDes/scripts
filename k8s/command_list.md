@@ -26,7 +26,8 @@ create a hello-world.yml file in a directory of your choosing.
 
 `nano hello-world.yml`
 
-Breaking down a yml file:
+Breaking down a yml file: 
+### if you want Tyrone's copy, get it from the zoom chat
 ```
 # Helloworld application- just the deployment
 apiVersion: apps/v1
