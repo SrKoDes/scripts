@@ -16,6 +16,8 @@
 
 `kubectl get all` - shows information on the current cluster
 
+`k3d cluster delete {cluster_name}` - deletes a cluster
+
 
 
 
