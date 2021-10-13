@@ -1,5 +1,17 @@
 `k3d cluster list` - lists all clusters
-`k3d cluster create` - creates a cluster
+
+`k3d cluster create {name}` - creates a cluster with name `{name}`
+
+`k3d cluster list` - see the cluster is created
+
+`k3d node create {agent_name} -c {cluster_name}` - creates agent in cluster
+
+`k3d cluster list` - lists all clusters ( you can see the agent exists in the cluster now.
+
+`k3d node list` - lists your nodes
+
+
+
 
 
 
