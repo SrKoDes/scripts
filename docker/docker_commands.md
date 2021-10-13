@@ -78,3 +78,20 @@ docker
 `docker network inspect {net_name}` - gives information about a network
 
 `check /etc/resolv.conf` has teh local dns ---- maybe
+
+`docker run -ti -p 45678:8080 ncat:v1.0 bash`- starts a container with a ports open
+
+
+**Inside new container with ports**
+`nc -lp 8080`- adds a port listener on 8080 (nc allows you to connect and open a port on the system you run nc on. ncat listen on port 8080)
+
+**Back Outside**
+`nc localhost 45678` - CONENCT to localhost port now you can send messages between each other
+
+`docker run -ti -p 45672:8000 ncat:v1.0 bash` - create new container with different port
+
+inside first new container
+`nc -lp 8080` - open up the port again
+
+inside newest container
+`nc {ip of the above container} 8080` - connect to that port
