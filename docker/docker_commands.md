@@ -1,3 +1,7 @@
+# Container Commands
+
+docker
+
 ### Listing Commands
 `docker images` - lists all images
 
@@ -6,6 +10,8 @@
 `docker container ls` - " " " "
 
 `docker ps -a` - lists all containers
+
+`docker {asset_type} inspect {asset_id}` - gives detailed information on an "asset". An asset is either a container, image or network. If {asset_type} is left blank, by default this value is "container". The {asset_id} would be the {container_id} in this case.
 
 ### Building Commands
 `docker build {image_name}:{image_tag} path/to/Dockerfile` - creates an image from a Dockerfile (easiest if done in the dir where it's located)
@@ -60,9 +66,15 @@
 ### Docker Hub Commands
 `docker pull {image_name}` - pulls an image from Docker Hub
 
+`docker tag ncat:v2.0 srkodes/ncat:v3.0` - create new image and tag it
+
 ### Networking Commands
 `docker network ls` - lists all networks
 
 `docker network create {network_name}` - create network
 
 `--net` option - look under **Building Commands** above
+
+`docker network inspect {net_name}` - gives information about a network
+
+`check /etc/resolv.conf` has teh local dns ---- maybe
