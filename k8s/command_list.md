@@ -8,9 +8,11 @@
 
 `k3d cluster list` - lists all clusters ( you can see the agent exists in the cluster now.
 
-`k3d node list` - lists your nodes
+`k3d node list` - lists your nodes (see the nodes you and your cluster created)
 
+`kubectl config get-contexts {cluster_name}` - gives more info on clusters. tells you which youre currently connected to (denoted by "\*" under Current). `{name}` is optional and will give you the specific cluster
 
+`kubectl config use-context {cluster_name}` - allows you to switch to the designated cluster
 
 
 
