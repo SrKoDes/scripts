@@ -86,38 +86,17 @@ docker run -ti --name server03 ncat:v1.0 bash
 ping {server02_IP_address} (Ctrl + C to stop)
 exit
 ```
-As you can see, the ping is unsuccessful despite both containers being on networks that connect to the internet. That's because the networks aren't connected yet.
+As you can see, the ping is unsuccessful despite both containers being on networks that connect to the internet. We can connect a container on `net01` to the bridge network, and that will allow `server03` to ping any container on `net01`.
+```
+docker network connect bridge server02
+docker exec -ti server03 bash
 
-outside of the docker
-`docker network connect bridge server02`- network bridge the server02 to bridge network, allowing it to ping 1st container created above
-`docker exec -ti server02 bash`- re enter server02 container (and ping containers to see youre connection)
+>Inside the container
+ping {server02_IP_Address} (Ctrl + C to stop)
+ping {server01_IP_Address} (Ctrl + C to stop)
+exit
+```
+The first command is the most important. It connects a container, designated `server01`, to a network, designated `bridge`. All of our servers can now talk to each other!
 
-outside of the container![Uploading Screen Shot 2021-10-09 at 9.18.41 AM.png…]()
-
-`docker run -ti -p 45678:8080 ncat:v1.0 bash`
-
-
-inside new container with ports
-`nc -lp 8080`- adds a port listener on 8080 (nc allows you to connect and open a port on the system you run nc on. ncat listen on port 8080)
-
-outside
-`nc localhost 45678` - CONENCT to localhost port now you can send messages between each other
-
-
-`docker run -ti -p 45672:8000 ncat:v1.0 bash` - create new container with different port
-
-inside first new container
-`nc -lp 8080` - open up the port again
-
-inside newest container
-`nc {ip of the above container} 8080` - connect to that port
-
-
-docker hub
-
-`docker tag ncat:v2.0 srkodes/ncat:v3.0` - create new image
-
-
-`docker inspect {container ID}` to view Network info
-
-`check /etc/resolv.conf` has teh local dns ---- maybe
+### Conclusion
+This is just one way of conecting containers and allowing them to exchange information. To see my first guide, introducing Docker, click [here](https://github.com/SrKoDes/scripts/blob/main/docker/docker_guide.md). For a list of commonly used Docker commands, click [here](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md)
