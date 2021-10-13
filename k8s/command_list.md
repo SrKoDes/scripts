@@ -1,4 +1,5 @@
-k3d cluster list
+`k3d cluster list` - lists all clusters
+`k3d cluster create` - creates a cluster
 
 
 
