@@ -18,6 +18,7 @@
 
 `k3d cluster delete {cluster_name}` - deletes a cluster
 
+`k3d cluster create {cluster_name} -p "8081:8080@loadbalancer" ` - create a cluster with a port open on a loadbalancer
 
 
 
