@@ -26,7 +26,28 @@ create a hello-world.yml file in a directory of your choosing.
 
 `nano hello-world.yml`
 
-
-
+Breaking down a yml file:
+```
+# Helloworld application- just the deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: # name of the deployment
+spec:
+  selector:
+    matchLabels:
+      app: helloworld
+  replicas: # tells deployment how many pods to run
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: # name of the app
+    spec:
+      containers:
+      - name: helloworld
+        image: karthequian/helloworld:latest
+        ports:
+        - containerPort: 80
+```
 
 ![Screen Shot 2021-10-13 at 6 49 18 PM](https://user-images.githubusercontent.com/84875113/137223200-2735d55e-5405-4617-91ab-384071822cd2.png)
