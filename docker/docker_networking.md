@@ -59,7 +59,8 @@ docker run -ti --name server02 --net net01 ncat:v1.0
 ifconfig
 ```
 
-<img width="449" alt="Screen Shot 2021-10-09 at 9 18 41 AM" src="https://user-images.githubusercontent.com/84875113/137186241-4645ddce-8226-4e79-90ca-33134cf15b7c.png">
+<img width="710" alt="Screen Shot 2021-10-13 at 1 48 00 PM" src="https://user-images.githubusercontent.com/84875113/137192388-4393b4f5-437e-48be-ac31-f8ba406679f9.png">
+
 
 ```
 exit
