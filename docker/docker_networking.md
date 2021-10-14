@@ -2,11 +2,11 @@
 
 Welcome! This guide will briefly show you how to enable two docker containers to talk to the internet, as well as each other!
 
-***If you haven't already check out the [Intro Guide](https://github.com/SrKoDes/scripts/blob/main/docker/docker_guide.md) as well as my working [Master Commands List](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md)!***
+***If you haven't already, check out the [Intro Guide](https://github.com/SrKoDes/scripts/blob/main/docker/docker_guide.md) as well as my working [Master Commands List](https://github.com/SrKoDes/scripts/blob/main/docker/docker_commands.md)!***
 
 ### Intro
 
-Docker has at least three pre-installed networks: `Bridge`, `Host`, and `None`. Each has a different bridge that defines its network capabilities. In this case, their driver names are the same as their network names with the exception of `None`'s driver named `Null`. Below are descriptions of each driver.
+Docker has three base networks: `Bridge`, `Host`, and `None`. Each has a different driver that defines its network capabilities. In this case, their driver names are the same as their network names with the exception of `None`'s driver being `Null`. Below are descriptions of each driver.
 - **Bridge**: A network created by Docker to allow containers to talk to the internet as well as other containers on the same network. The default driver for any created network, if no driver is specified.
 - **Host**: The container is placed on the host computer's network, i.e. your home internet.
 - **Null**: The container has no networking capabilities.
@@ -28,7 +28,7 @@ Our output should look like the image below:
 
 <img width="449" alt="Screen Shot 2021-10-09 at 9 18 41 AM" src="https://user-images.githubusercontent.com/84875113/136659429-77f6fe43-5656-4b81-8327-5e7d7f0ecb22.png">
 
-As you can see, our network `net01` has the `bridge` driver, meaning any container on this network should be able to connect to the internet. Let's test that out. For this, we'll need the `ncat:v1.0` image we created in the previous guide. If you don't have that image, here are steps to quickly create that image:
+As you can see, our network `net01` has the `bridge` driver, meaning any container on this network should be able to connect to the internet. Let's test that out. For this, we'll need the `ncat:v1.0` image we created in the previous [guide](https://github.com/SrKoDes/scripts/blob/main/docker/docker_guide.md). If you don't have that image, here are steps to quickly create that image:
 ```
 docker pull ubuntu
 docker run -ti ubuntu bash
@@ -41,7 +41,7 @@ exit
 >Back in Host Shell
 docker commit {container_id} ncat:v1.0
 ```
-From here, let's proceed. Create a container from the `ncat:v1.0` image, with the name `server01` on the network we just created `net01`. After we've created and connected to the container, let's ping Google's primary DNS server to check for internet access:
+From here, let's proceed. Create a container from the `ncat:v1.0` image, with the name `server01` on the network we just created, `net01`. After we've created and connected to the container, let's ping Google's primary DNS server to check for internet access:
 ```
 docker run -ti --name server01 --net net01 ncat:v1.0 bash
 
@@ -74,7 +74,7 @@ exit
 ```
 *Note the box highlighted in the image above is your container's public IP address.*
 
-As you can see, since these containers are on the same network, they can ping each other. What would happen if the containers were on different networks?
+As you can see, since these containers are on the same network, they can ping each other. What would happen if we pinged a container on a different network?
 
 ### Connecting Networks
 
