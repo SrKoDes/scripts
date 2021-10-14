@@ -26,6 +26,10 @@ create a hello-world.yml file in a directory of your choosing.
 
 `nano hello-world.yml`
 
+connecting a service such as a deployment to a load balancer.
+
+`kubectl expose deployment *nameofnode* --port (used loadbalancer latter) --target-port (deployment port) --type=LoadBalancer
+
 Breaking down a yml file: 
 ### if you want Tyrone's copy, get it from the zoom chat
 ```
