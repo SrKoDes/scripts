@@ -1,4 +1,4 @@
-# Docker Networking - Big question (do experiments) can two containers on two different bridge networks talk to each other?
+# Docker Networking
 
 Welcome! This guide will briefly show you how to enable two docker containers to talk to the internet, as well as each other!
 
