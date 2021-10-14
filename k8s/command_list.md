@@ -10,9 +10,9 @@
 
 `kubectl get all` - Shows information on clusters
 
-`k3d cluster delete {cluster_name}` - Deletes a specified cluster
+`k3d cluster edit cluster-name --port-add "{port}:{port}@loadbalancer"` - Will edit the cluster. In this case it is adding a port to the loadbalancer
 
-`k3d cluster edit cluster-name --port-add "{port}:{port}@loadbalancer"`
+`k3d cluster delete {cluster_name}` - Deletes a specified cluster
 
 **Options**
 
@@ -28,11 +28,11 @@
 
 ### Deployments
 
-`kubectl create -f {file_name}.yml` - create a deployment
+`kubectl create -f {file_name}.yml` - Create a deployment
 
-`kubectl get all` - shows info on the deployment 
+`kubectl get all` - Shows info on the deployment 
 
-`kubectl expose deployment {app_name(from yml file)-deployment} --port 8080 --target-port 80 --type=LoadBalancer` - expose ports on a deployment. go on local host:8081 after and it works (can be included in yml file)
+`kubectl expose deployment {app_name(from yml file)-deployment} --port 8080 --target-port 80 --type=LoadBalancer` - Expose ports on a deployment. go on local host:8081 after and it works (can be included in yml file)
 
 
 ### .yml File
