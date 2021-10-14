@@ -57,6 +57,7 @@ spec:
 
 `kubectl expose deployment {app_name(from yml file)-deployment} --port 8080 --target-port 80 --type=LoadBalancer` - expose ports on a deployment. go on local host:8081 after and it works
 
+`kube
 
 
 ![Screen Shot 2021-10-13 at 6 49 18 PM](https://user-images.githubusercontent.com/84875113/137223200-2735d55e-5405-4617-91ab-384071822cd2.png)
