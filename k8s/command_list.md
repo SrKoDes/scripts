@@ -1,33 +1,42 @@
-`k3d cluster list` - lists all clusters
+### Clusters
 
-`k3d cluster create {name}` - creates a cluster with name `{name}`
+`k3d cluster list` - Lists all clusters
 
-`k3d cluster list` - see the cluster is created
+`k3d cluster create {name}` - Creates a cluster with name `{name}`. If no name is specified, it creates the default cluster
 
-`k3d node create {agent_name} -c {cluster_name}` - creates agent in cluster
+`kubectl config get-contexts {cluster_name}` - Gives info on clusters. Tells you which you're currently connected to (denoted by "\*" under "Current"). `{name}` is optional and will give you info on the specific cluster
 
-`k3d cluster list` - lists all clusters ( you can see the agent exists in the cluster now.
+`kubectl config use-context {cluster_name}` - Allows you to switch connection to the designated cluster
 
-`k3d node list` - lists your nodes (see the nodes you and your cluster created)
+`kubectl get all` - Shows information on clusters
 
-`kubectl config get-contexts {cluster_name}` - gives more info on clusters. tells you which youre currently connected to (denoted by "\*" under Current). `{name}` is optional and will give you the specific cluster
+`k3d cluster delete {cluster_name}` - Deletes a specified cluster
 
-`kubectl config use-context {cluster_name}` - allows you to switch to the designated cluster
+`k3d cluster edit cluster-name --port-add "{port}:{port}@loadbalancer"`
 
-`kubectl get all` - shows information on the current cluster
+**Options**
 
-`k3d cluster delete {cluster_name}` - deletes a cluster
+`-p "{localhost_port}:{container_port}@loadbalancer" ` - When used with `k3d cluster create`, will open a port on the cluster's loadbalancer
 
-`k3d cluster create {cluster_name} -p "8081:8080@loadbalancer" ` - create a cluster with a port open on a loadbalancer
+### Nodes
 
-`kubectl get node` - shows info on a node (maybe the master node)
+`k3d node list` - Lists all nodes
 
-create a hello-world.yml file in a directory of your choosing.
+`k3d node create {agent_name} -c {cluster_name}` - Creates agent in specified cluster
 
-`nano hello-world.yml`
+`kubectl get node` - Shows info on a node (maybe the master node)
 
-Breaking down a yml file: 
-### if you want Tyrone's copy, get it from the zoom chat
+### Deployments
+
+`kubectl create -f {file_name}.yml` - create a deployment
+
+`kubectl get all` - shows info on the deployment 
+
+`kubectl expose deployment {app_name(from yml file)-deployment} --port 8080 --target-port 80 --type=LoadBalancer` - expose ports on a deployment. go on local host:8081 after and it works (can be included in yml file)
+
+
+### .yml File
+
 ```
 # Helloworld application- just the deployment
 apiVersion: apps/v1
@@ -51,14 +60,7 @@ spec:
         - containerPort: 80
 ```
 
-`kubectl create -f {file_name}.yml` - create a deployment
-
-`kubectl get all` - info on the deployment
-
-`kubectl expose deployment {app_name(from yml file)-deployment} --port 8080 --target-port 80 --type=LoadBalancer` - expose ports on a deployment. go on local host:8081 after and it works
-
 
 ![Screen Shot 2021-10-13 at 6 49 18 PM](https://user-images.githubusercontent.com/84875113/137223200-2735d55e-5405-4617-91ab-384071822cd2.png)
 
 
-`k3d cluster edit cluster-name --port-add "{port}:{port}@loadbalancer"`
