@@ -26,6 +26,17 @@
 
 `kubectl get node` - Shows info on a node (maybe the master node)
 
+### Pod
+
+`kubectl get po` - see your pods
+
+`kubectl logs`
+
+`kubectl exec -it {iamge_name}
+
+`kubectl run --image {image_name} {options} {pod_name}` - creates a pod
+
+
 ### Deployments
 
 `kubectl create -f {file_name}.yml` - Create a deployment
