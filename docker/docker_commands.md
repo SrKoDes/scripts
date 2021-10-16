@@ -66,7 +66,9 @@ docker
 ### Docker Hub Commands
 `docker pull {image_name}` - pulls an image from Docker Hub
 
-`docker tag ncat:v2.0 srkodes/ncat:v3.0` - create new image and tag it
+`docker tag {local_image_name}:{tag_name} {repo_name}/{target_image_name}:{tag name}` - create new image and tag it
+
+`docker push {repo_name}/{image_name}:{tag_name}` - push an image to a specified repo
 
 ### Networking Commands
 `docker network ls` - lists all networks
