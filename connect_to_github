@@ -17,4 +17,4 @@ git switch -C "new branch name" #if you need to create the branch
 
 git add .
 git commit -m "message here"
-git push
+git push -u origin main
