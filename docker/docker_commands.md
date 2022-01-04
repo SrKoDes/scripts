@@ -32,7 +32,7 @@ docker
 
 `--net` - when used with `run`, you can associate your container with a network. This network must exist
 
-`-p` - when used with `run`, you can expose ports on the container. It is followed by `{host_port}/{container_port}.` If no host port is given, Docker will automatically assign one.
+`-p` - when used with `run`, you can expose ports on the container. It is followed by `{host_port}:{container_port}.` If no host port is given, Docker will automatically assign one.
 
 `--rm` - when used with `run`, will clean up container and remove file systems
 
